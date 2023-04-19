@@ -14,5 +14,12 @@ stages{
     sh "mvn clean package"
     }
   }
+  stage('SonarQube analysis') {
+        steps{
+        withSonarQubeEnv('sonarqube-10.0') { 
+        sh "mvn sonar:sonar"
+    }
+        }
+        }
   }
 }
